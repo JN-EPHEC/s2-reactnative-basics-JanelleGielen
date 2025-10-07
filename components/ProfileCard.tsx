@@ -18,6 +18,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   return (
     <>
       <Text>Replace this part with your soluce</Text>
+      <view style [styles.card]>
+      image source [(url : image)] style (styles.image)/>
+      <view style (style.textContainer)>
+      <text style=(style.name)
+
+    
     </>
   );
 };
@@ -55,3 +61,5 @@ const styles = StyleSheet.create({
 });
 
 export default ProfileCard;
+
+Test commit 
