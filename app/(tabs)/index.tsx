@@ -13,6 +13,15 @@ export default function HomeScreen() {
   return (
       <ScrollView>
         { /* Render the list of users using the UserItem component */ }
+        <Text style={styles.title}>Liste des utilisateurs</Text>
+
+      {USERS_DATA.map((user) => (
+        <UserItem
+          key={user.id}
+          nom={user.nom}
+          email={user.email}
+        />
+      ))}
       </ScrollView>
   );
 }
