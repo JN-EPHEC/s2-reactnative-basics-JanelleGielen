@@ -1,4 +1,5 @@
 import { ScrollView, StyleSheet } from "react-native";
+import ProfileCard from '../../components/ProfileCard'; // 🔥 adapte ce chemin selon ton projet
 
 const USERS_DATA = [
   { id: '1', nom: 'Alice Martin', email: 'alice.martin@email.com' },
@@ -54,5 +55,30 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     marginTop: 4,
+  },
+});
+
+export default function HomeScreen() {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <ProfileCard
+        name="Alice"
+        jobTitle="React Native Developer"
+        imageUrl="https://picsum.photos/200/300"
+      />
+      <ProfileCard
+        name="Benjamin"
+        jobTitle="UX Designer"
+        imageUrl="https://randomuser.me/api/portraits/men/45.jpg"
+      />
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 20,
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
   },
 });

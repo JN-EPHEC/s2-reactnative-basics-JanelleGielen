@@ -1,57 +1,86 @@
-import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Image, StyleSheet, Text, View } from 'react-native';
 
-// Define the props interface for type safety
-interface ProfileCardProps {
-  name: string;
-  jobTitle: string;
-  imageUrl: string;
+export default function ProfileCard({ name, jobTitle, imageUrl }) {
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.jobTitle}>{jobTitle}</Text>
+    </View>
+  );
 }
 
-// The component receives 'props' as an argument.
-// We use destructuring to get the values we need directly.
-const ProfileCard: React.FC<ProfileCardProps> = ({
-  name,
-  jobTitle,
-  imageUrl,
-}) => {
-  return (
-    <>
-      <Text>Replace this part with your soluce</Text>
-    </>
-  );
-};
-
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#fff",
-    borderRadius: 16,
-    padding: 20,
-    margin: 16,
-    flexDirection: "row",
-    alignItems: "center",
-    shadowColor: "#000",
+  container: {
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    padding: 16,
+    margin: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 5,
+    shadowRadius: 5,
+    elevation: 3,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  textContainer: {
-    marginLeft: 16,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 12,
   },
   name: {
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 18,
+    fontWeight: 'bold',
   },
   jobTitle: {
-    fontSize: 16,
-    color: "gray",
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
   },
 });
 
-export default ProfileCard;
+type ProfileCardProps = {
+  name: string;
+  jobTitle: string;
+  imageUrl: string;
+};
+
+export default function ProfileCard({ name, jobTitle, imageUrl }: ProfileCardProps) {
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Text style={styles.name}>{name}</Text>
+      <Text style={styles.jobTitle}>{jobTitle}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 16,
+    margin: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 12,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  jobTitle: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 4,
+  },
+});
